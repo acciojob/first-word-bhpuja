@@ -1,16 +1,37 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-	<link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Word Function</title>
+    <script>
+        function firstWord(str) {
+            // Remove leading spaces
+            const trimmed = str.trimStart();
+            // Find the index of the first space
+            const spaceIndex = trimmed.indexOf(' ');
+            // If no space is found, return the entire string
+            if (spaceIndex === -1) {
+                return trimmed;
+            }
+            // Otherwise, return the substring up to the first space
+            return trimmed.slice(0, spaceIndex);
+        }
+
+        // Example usage
+        function displayResult() {
+            const input = document.getElementById("inputString").value;
+            const result = firstWord(input);
+            document.getElementById("output").innerText = `First Word: '${result}'`;
+        }
+    </script>
 </head>
-
 <body>
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-</script>
-
+    <h1>First Word Finder</h1>
+    <label for="inputString">Enter a string:</label>
+    <input type="text" id="inputString" placeholder="Type here...">
+    <button onclick="displayResult()">Get First Word</button>
+    <p id="output"></p>
 </body>
-
 </html>
+
